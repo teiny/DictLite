@@ -1,0 +1,46 @@
+[package]
+name = "dictlite"
+version = "0.2.0"
+edition = "2024"
+default-run = "dictlite"
+
+[features]
+default = ["desktop"]
+desktop = ["dep:tauri", "dep:tauri-build", "dep:rfd", "dep:winreg", "dep:windows", "dep:tauri-plugin-single-instance"]
+
+[dependencies]
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+rusqlite = { version = "0.37", features = ["bundled"] }
+uuid = { version = "1", features = ["v4"] }
+sha2 = "0.10"
+time = { version = "0.3", features = ["formatting"] }
+scraper = "0.24"
+mdictlib = "0.2.8"
+tauri = { version = "2.11", features = ["tray-icon", "image-png"], optional = true }
+tauri-plugin-single-instance = { version = "2", optional = true }
+rfd = { version = "0.17", optional = true }
+
+[target.'cfg(windows)'.dependencies]
+winreg = { version = "0.55", optional = true }
+windows = { version = "0.61", features = ["Win32_System_Com", "Win32_Media_Speech", "Win32_UI_WindowsAndMessaging", "Win32_System_DataExchange", "Win32_System_Memory", "Win32_System_Threading", "Win32_System_LibraryLoader", "Win32_Graphics_Gdi"], optional = true }
+
+[build-dependencies]
+tauri-build = { version = "2.6", features = [], optional = true }
+
+[[bin]]
+name = "dictlite"
+path = "src/main.rs"
+required-features = ["desktop"]
+
+[[bin]]
+name = "dictlite-convert"
+path = "src/bin/convert.rs"
+
+[dev-dependencies]
+tempfile = "3"
+
+[profile.release]
+strip = true
+lto = "thin"
+codegen-units = 1

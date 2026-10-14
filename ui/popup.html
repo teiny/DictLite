@@ -1,0 +1,10 @@
+<!doctype html>
+<html lang="zh-CN">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>DictLite 快速查词</title><link rel="stylesheet" href="popup.css"></head>
+<body>
+  <header><span class="brand">DictLite</span><span class="hint">快速查词</span><button id="pin" aria-label="置顶窗口" aria-pressed="false" title="置顶窗口"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M8 3h8m-7 0v7l-3 4v2h12v-2l-3-4V3M12 16v5"/></svg></button><button id="close" aria-label="关闭快速查词" title="关闭（Esc）">×</button></header>
+  <main id="content" aria-live="polite"><p class="message">正在查词…</p></main>
+  <footer><span id="status">Ctrl+C+C</span><button id="open-main" hidden>完整查看 →</button></footer>
+  <script src="entry-utils.js"></script><script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,8 @@
+/target/
+/dist/
+/data/
+/dictionaries/
+/dictlite.settings.json
+/dictlite.settings.json.tmp
+/work/
+/gen/

@@ -1,0 +1,5 @@
+{
+  "identifier": "main",
+  "windows": ["main", "popup"],
+  "permissions": ["core:default"]
+}
